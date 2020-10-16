@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp1
 {
@@ -24,7 +24,7 @@ namespace ConsoleApp1
             }
         }
 
-        static void getHelp()
+        static void getHelp() // Ukazuje vsechny mozne commands.
         {
             string[] commands = {"List of commands:\n",
                                  "1.--help => Shows all avalible commands\n.",
@@ -35,9 +35,9 @@ namespace ConsoleApp1
             {
                 Console.WriteLine(items);
             }
-        }
+        } 
 
-        static void setDate(string[] args)
+        static void setDate(string[] args) // Nastavuje novou DataTime
         {
             if (args.Length > 3)
             {
@@ -46,15 +46,17 @@ namespace ConsoleApp1
             else
             {
                 string dateStr = args[1].ToString();
-                string[] valueDate = dateStr.Split('-');
 
+                // Radek dateStr musime rozdelit a zapsat do masivu valueDate 
+                string[] valueDate = dateStr.Split('-');
+                
                 DateTime newDt = new DateTime(int.Parse(valueDate[0]), int.Parse(valueDate[1]), int.Parse(valueDate[2]));
 
                 Console.WriteLine($"You set a new DateTime. Current DateTime is {newDt:d}");
                 Console.ReadKey();
             }
         }
-        static void upgradeNewDate(string[] args)
+        static void upgradeNewDate(string[] args)// Upravuje novou DataTime.
         {
             string dateStr = args[1].ToString();
             string[] valueDate = dateStr.Split('-');
@@ -69,7 +71,7 @@ namespace ConsoleApp1
 
             }
         }
-        static void addDaysToCuttentDate(string[] args)
+        static void addDaysToCuttentDate(string[] args) // Pridava dny k aktualnimu datu.
         {
             DateTime currentDate = DateTime.Now;
             string daysStr = args[1].ToString();
